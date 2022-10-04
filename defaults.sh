@@ -25,6 +25,14 @@ defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 
+#Always show scrollbars
+defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+
+# Require password immediately after sleep or screen saver begins"
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+
 # Save to disk (not to iCloud) by default
 ##TODO is this wanted?
 # defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
@@ -104,3 +112,92 @@ defaults write com.apple.ActivityMonitor ShowCategory -int 0
 # Sort Activity Monitor results by CPU usage
 defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
 defaults write com.apple.ActivityMonitor SortDirection -int 0
+
+# Disable press-and-hold for keys in favor of key repeat
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+# Set a blazingly fast keyboard repeat rate
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
+
+#'Jump to the spot that's clicked' in Scroll Bars:
+
+defaults write NSGlobalDomain AppleScrollerPagingBehavior -int 1
+
+# Disable the all too sensitive backswipe on trackpads
+defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
+defaults write com.google.Chrome.canary AppleEnableSwipeNavigateWithScrolls -bool false
+
+# Disable the all too sensitive backswipe on Magic Mouse
+defaults write com.google.Chrome AppleEnableMouseSwipeNavigateWithScrolls -bool false
+defaults write com.google.Chrome.canary AppleEnableMouseSwipeNavigateWithScrolls -bool false
+
+#Show Develop menu in Safari:
+defaults write com.apple.Safari IncludeDevelopMenu -bool true
+
+# Speed up Mission Control animations
+defaults write com.apple.dock expose-animation-duration -float 0.1
+
+
+# Change minimize/maximize window effect
+defaults write com.apple.dock mineffect -string "scale"
+
+# Show indicator lights for open applications in the Dock
+defaults write com.apple.dock show-process-indicators -bool true
+
+# Wipe all (default) app icons from the Dock
+# This is only really useful when setting up a new Mac, or if you don’t use
+# the Dock to launch apps.
+#defaults write com.apple.dock persistent-apps -array
+
+
+# Make Dock icons of hidden applications translucent
+defaults write com.apple.dock showhidden -bool true
+
+# Don’t show recent applications in Dock
+defaults write com.apple.dock show-recents -bool false
+
+echo " Enable SSH "
+sudo launchctl load -w /System/Library/LaunchDaemons/ssh.plist
+
+
+##TODO:
+
+
+# Programs
+
+# -brew
+# -unarchiver
+# -xcode
+
+# Meta
+# -Workplace app
+# -flipper
+# -xcode
+
+
+# Mac Settings
+# -set date time & dat time format
+# 	-24 hour time
+# 	-set time format
+# 	-set celcius
+# -dock & menu bar settings
+# 	-menubar clock show date never, hide date of week
+# 	-auto hide show
+# 	-minimize scale effect
+# 	-dont show recent dock applications
+# -mission control
+# 	-disable auto rearrange spaces by recent use
+# -general 
+# 	-prefer tabs always
+# 	-click scroll bar to jump to spot that's clicked
+# 	-auto light dark
+# -touch id, pinky & index
+# -security
+# 	-allow apple watch to unlock
+# -battery / power
+# 	-
+# -disable scroll to go back
+# -keyboard repeat rate
+
+
